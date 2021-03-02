@@ -45,3 +45,13 @@ div {
     color: #007BFF;
   }
 }
+
+.follow-button {
+  border: none;
+  background-color: transparent;
+  color: #007BFF;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
