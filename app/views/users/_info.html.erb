@@ -11,7 +11,7 @@
   <tr>
     <th>follows</th>
     <th>
-      <%= link_to following_user_path(user) do %>
+      <%= link_to following_user_path(user), id: 'following' do %>
         <%= user.following.count %>
       <% end %>
     </th>
@@ -19,7 +19,7 @@
   <tr>
     <th>followers</th>
     <th>
-      <%= link_to followers_user_path(user) do %>
+      <%= link_to followers_user_path(user), id: 'followers' do %>
         <%= user.followers.count %>
       <% end %>
     </th>
@@ -30,11 +30,19 @@
   <% if user == current_user %>
     <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
   <% else %>
-    <% if current_user.following?(user) %>
-      <%= render 'unfollow', user: user %>
-    <% else %>
-      
-    <% end %>
+    <div id="follow_form">
+      <% if current_user.following?(user) %>
+        <%= form_with(model: current_user.active_relationships.find_by(followed_id: user.id), method: :delete) do |f| %>
+          <%= hidden_field_tag :followed_id, user.id %>
+          <td><%= f.submit "フォローを外す", class: "btn btn-sm btn-info" %></td>
+        <% end %>
+      <% else %>
+        <%= form_with(model: current_user.active_relationships.build) do |f| %>
+          <%= hidden_field_tag :followed_id, user.id %>
+          <td><%= f.submit "フォローする", class: "btn btn-sm btn-success" %></td>
+        <% end %>
+      <% end %>
+    </div>
   <% end %>
 </div>
 
