@@ -32,15 +32,9 @@
   <% else %>
     <div id="follow_form">
       <% if current_user.following?(user) %>
-        <%= form_with(model: current_user.active_relationships.find_by(followed_id: user.id), method: :delete) do |f| %>
-          <%= hidden_field_tag :followed_id, user.id %>
-          <td><%= f.submit "フォローを外す", class: "btn btn-sm btn-info" %></td>
-        <% end %>
+        <%= render 'unfollow', user: user %>
       <% else %>
-        <%= form_with(model: current_user.active_relationships.build) do |f| %>
-          <%= hidden_field_tag :followed_id, user.id %>
-          <td><%= f.submit "フォローする", class: "btn btn-sm btn-success" %></td>
-        <% end %>
+        <%= render 'follow', user: user %>
       <% end %>
     </div>
   <% end %>
