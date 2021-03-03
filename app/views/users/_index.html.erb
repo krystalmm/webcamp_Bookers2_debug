@@ -19,14 +19,17 @@
         <% if user == current_user %>
           <td></td>
         <% else %>
+        <div class="follow_button">
           <% if current_user.following?(user) %>
-            <%= render 'unfollow', user: user %>
+            <td><%= render 'layouts/unfollow', user: user %></td>
           <% else %>
-            <%= render 'follow', user: user %>
+            <td><%= render 'layouts/follow', user: user %></td>
           <% end %>
+        </div>
         <% end %>
         <td><%= link_to 'Show', user_path(user), class: "user_#{user.id}" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
