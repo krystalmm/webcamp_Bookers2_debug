@@ -70,3 +70,4 @@ gem 'jp_prefecture'
 gem 'pry-rails'
 gem 'pry-byebug'
 gem 'dotenv-rails'
+gem 'whenever', require: false
