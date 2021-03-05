@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="chat-page col-10 offset-1">
+      <h2><%= @user.name %>さんとのチャット</h2>
+      <div id="chat-history">
+        
+      </div>
+      <div id="chat-form">
+        <%= form_with(model: [@user, @chat],url: user_chat_path, method: :get) do |f| %>
+          <%= f.text_field :message %>
+        <% end %>
+      </div>
+      <div id="chat-content">
+        
+      </div>
+    </div>
+  </div>
+</div>

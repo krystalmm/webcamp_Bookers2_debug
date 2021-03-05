@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     member do
       get :following, :followers
     end
+    resources :chat, only: [:show]
   end
   resources :relationships, only: [:create, :destroy]
   resources :books do
