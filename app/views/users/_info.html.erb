@@ -35,7 +35,7 @@
     <% else %>
       <td><%= link_to 'フォローする', relationships_path(followed_id: user.id), method: :post, class: 'btn btn-success btn-sm' %></td>
     <% end %>
-    <%= link_to "chatを始める", chat_path(user.id) %>
+    <%= link_to "chatを始める", chat_path(user.id), class: 'mt-3' %>
   <% end %>
 </div>
 
