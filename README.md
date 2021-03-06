@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## DMM WEBCAMP 応用課題（Bookers2）
+DMM WEBCAMP の応用課題です。
 
-Things you may want to cover:
+### 使い方
+PCのブラウザで実行できます。
+（ユーザー登録が必要です。）
 
-* Ruby version
+### テーマ
+ユーザー機能を持ち、読んだ本の感想を投稿するサイトです。
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
