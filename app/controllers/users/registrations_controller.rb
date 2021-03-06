@@ -12,6 +12,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
+    # unless以降はなくてもいける！
+    # resourceはcurrent_userでも
     ThanksMailer.send_when_signup(resource).deliver unless resource.invalid?
   end
 
